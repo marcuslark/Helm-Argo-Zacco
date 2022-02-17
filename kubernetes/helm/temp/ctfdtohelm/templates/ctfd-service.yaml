@@ -6,8 +6,9 @@ metadata:
     kompose.version: 1.26.1 (a9d05d509)
   creationTimestamp: null
   labels:
-    io.kompose.service: ctfd
-  name: {{ .Values.name }}
+    # io.kompose.service: ctfd
+    app.kubernetes.io/managed-by: Helm
+  name: ctfd
 spec:
   ports:
     - name: "8000"

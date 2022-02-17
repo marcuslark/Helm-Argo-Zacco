@@ -9,7 +9,7 @@ metadata:
     io.kompose.service: db
   name: db
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: 1
   selector:
     matchLabels:
       io.kompose.service: db

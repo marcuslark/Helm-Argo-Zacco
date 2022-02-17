@@ -1,25 +1,3 @@
 # Default values for ctfdToHelm.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
-
-replicaCount: 1
-
-name: ctfdtohelm
-
-mariadb:
-  enabled: true
-  replication:
-    enabled: false
-
-  db:
-    name: ctfd
-    user: ctfd
-    password: ctfd
-
-  rootUser:
-    password: ctfd
-
-redis:
-  usePassword: false
-  cluster:
-    enabled: false
