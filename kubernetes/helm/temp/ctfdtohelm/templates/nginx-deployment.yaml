@@ -3,8 +3,10 @@ kind: Deployment
 metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    kompose.cmd: ../../kompose convert -c
-    kompose.version: 1.26.1 (a9d05d509)
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    # kompose.cmd: ../../kompose convert -c
+    # kompose.version: 1.26.1 (a9d05d509)
   creationTimestamp: null
   labels:
     io.kompose.service: nginx
@@ -32,9 +34,9 @@ spec:
           ports:
             - containerPort: 80
           resources: {}
-          volumeMounts:
-            - mountPath: /etc/nginx/nginx.conf
-              name: nginx-claim0
+          # volumeMounts:
+          #   - mountPath: /etc/nginx/nginx.conf
+          #     name: nginx-claim0
       restartPolicy: Always
       volumes:
         - name: nginx-claim0

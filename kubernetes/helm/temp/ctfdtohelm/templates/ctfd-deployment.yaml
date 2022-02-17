@@ -23,7 +23,7 @@ spec:
       creationTimestamp: null
       labels:
         app.kubernetes.io/managed-by: Helm
-        # io.kompose.service: ctfd
+        io.kompose.service: ctfd
     spec:
       containers:
         - env:
@@ -43,29 +43,33 @@ spec:
               value: /var/uploads
             - name: WORKERS
               value: "1"
-          image: ctfd
+          image: ctfd/ctfd
           name: ctfd
           ports:
             - containerPort: 8000
           resources: {}
-          volumeMounts:
-            - mountPath: /var/log/CTFd
-              name: ctfd-claim0
-            - mountPath: /var/uploads
-              name: ctfd-claim1
-            - mountPath: /opt/CTFd
-              name: ctfd-claim2
-              readOnly: true
+          # volumeMounts:
+          #   - mountPath: /var/log/CTFd
+          #     name: ctfd-claim0
+          #   - mountPath: /var/uploads
+          #     name: ctfd-claim1
+          #   - mountPath: /opt/CTFd
+          #     name: ctfd-claim2
+          #     readOnly: true
       restartPolicy: Always
       volumes:
-        - name: ctfd-claim0
+        - name: mariadb-storage
           persistentVolumeClaim:
-            claimName: ctfd-claim0
-        - name: ctfd-claim1
-          persistentVolumeClaim:
-            claimName: ctfd-claim1
-        - name: ctfd-claim2
-          persistentVolumeClaim:
-            claimName: ctfd-claim2
-            readOnly: true
+            claimName: database-persistent-volume-claim
+      # volumes:
+      #   - name: ctfd-claim0
+      #     persistentVolumeClaim:
+      #       claimName: ctfd-claim0
+      #   - name: ctfd-claim1
+      #     persistentVolumeClaim:
+      #       claimName: ctfd-claim1
+      #   - name: ctfd-claim2
+      #     persistentVolumeClaim:
+      #       claimName: ctfd-claim2
+      #       readOnly: true
 status: {}
