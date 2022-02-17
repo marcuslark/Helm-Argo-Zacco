@@ -7,7 +7,7 @@ metadata:
   creationTimestamp: null
   labels:
     io.kompose.service: ctfd
-  name: ctfd
+  name: {{ .Values.name }}
 spec:
   ports:
     - name: "8000"

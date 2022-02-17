@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
+    kubernetes.io/ingress.class: "nginx"
     kompose.cmd: ../../kompose convert -c
     kompose.version: 1.26.1 (a9d05d509)
   creationTimestamp: null
