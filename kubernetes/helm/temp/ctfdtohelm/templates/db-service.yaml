@@ -6,15 +6,15 @@ metadata:
     kompose.version: 1.26.1 (a9d05d509)
   creationTimestamp: null
   labels:
-    # io.kompose.service: ctfd
+    #io.kompose.service: ctfd
     app.kubernetes.io/managed-by: Helm
-  name: ctfdservice
+  name: dbservice
 spec:
   ports:
-    - name: "8000"
-      port: 8000
-      targetPort: 8000
+    - name: "mysql"
+      port: 3306
+      targetPort: 3306
   selector:
-    io.kompose.service: ctfd
+    io.kompose.service: db
 status:
   loadBalancer: {}
