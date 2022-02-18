@@ -30,13 +30,13 @@ spec:
             - name: ACCESS_LOG
               value: '-'
             - name: DATABASE_URL
-              value: mysql+pymysql://ctfd:ctfd@db/ctfd
+              value: mysql+pymysql://ctfd:ctfd@dbservice/ctfd
             - name: ERROR_LOG
               value: '-'
             - name: LOG_FOLDER
               value: /var/log/CTFd
             - name: REDIS_URL
-              value: redis://cache:6379
+              value: redis://cacheservice:6379
             - name: REVERSE_PROXY
               value: "true"
             - name: UPLOAD_FOLDER

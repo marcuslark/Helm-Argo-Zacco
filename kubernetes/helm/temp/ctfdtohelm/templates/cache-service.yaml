@@ -8,13 +8,13 @@ metadata:
   labels:
     # io.kompose.service: ctfd
     app.kubernetes.io/managed-by: Helm
-  name: ctfdservice
+  name: cacheservice
 spec:
   ports:
-    - name: "8000"
-      port: 8000
-      targetPort: 8000
+    - name: "redisport"
+      port: 6379
+      targetPort: 6379
   selector:
-    io.kompose.service: ctfd
+    io.kompose.service: cache
 status:
   loadBalancer: {}

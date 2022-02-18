@@ -22,7 +22,7 @@ spec:
         kompose.version: 1.26.1 (a9d05d509)
       creationTimestamp: null
       labels:
-        io.kompose.network/ctfd-internal: "true"
+        #io.kompose.network/ctfd-internal: "true"
         io.kompose.service: db
     spec:
       containers:
@@ -47,9 +47,9 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/mysql
               name: db-claim0
+          ports:
+            - containerPort: 3306
       restartPolicy: Always
       volumes:
         - name: db-claim0
-          persistentVolumeClaim:
-            claimName: db-claim0
 status: {}
