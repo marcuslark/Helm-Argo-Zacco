@@ -1,13 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    kompose.cmd: ../../kompose convert -c
-    kompose.version: 1.26.1 (a9d05d509)
   creationTimestamp: null
   labels:
     app.kubernetes.io/managed-by: Helm
-    #io.kompose.service: cache
   name: cache
 spec:
   replicas: 1
@@ -18,9 +14,6 @@ spec:
     type: Recreate
   template:
     metadata:
-      annotations:
-        kompose.cmd: ../../kompose convert -c
-        kompose.version: 1.26.1 (a9d05d509)
       creationTimestamp: null
       labels:
          io.kompose.network/ctfd-internal: "true"
