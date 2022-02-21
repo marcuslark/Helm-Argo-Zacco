@@ -1,27 +1,15 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: route.openshift.io/v1
+kind: Route
 metadata:
-  name: ctfd-ingress
-#  annotations:
-#    kubernetes.io/ingress.class: nginx
-#    nginx.ingress.kubernetes.io/ssl-redirect: "false"
-#    nginx.ingress.kubernetes.io/use-regex: "true"
-#    nginx.ingress.kubernetes.io/rewrite-target: /$1
+  name: nginx-route
 spec:
-#  tls:
-#    - hosts:
-#        - host: nginxservice
-#        paths:
-#          - "/"
-
-  rules:
-    - host:
-      http:
-        paths:
-        - path: /ctfd(/|$)(.*)
-          pathType: Prefix
-          backend:
-            service:
-              name: ctfd
-              port:
-                number: 800
+  host: ctfd.apps.aro-pisanonprod.euw-hub02.azure.volvo.net
+  wildcardPolicy: None
+  port:
+    targetPort: 80
+  tls:
+    termination: edge
+  to:
+    kind: Service
+    name: nginxservice
+    weight: 100
