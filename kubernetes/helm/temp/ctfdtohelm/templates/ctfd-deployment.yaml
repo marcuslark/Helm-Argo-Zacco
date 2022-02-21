@@ -43,8 +43,8 @@ spec:
             - containerPort: 8000
           resources: {}
       restartPolicy: Always
-      volumes:
-        - name: mariadb-storage
-          persistentVolumeClaim:
-            claimName: database-persistent-volume-claim
+#      volumes:
+#        - name: mariadb-storage
+#          persistentVolumeClaim:
+#            claimName: database-persistent-volume-claim
 status: {}
