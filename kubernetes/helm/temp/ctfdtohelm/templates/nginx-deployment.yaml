@@ -24,13 +24,13 @@ spec:
         app.kubernetes.io/managed-by: Helm
     spec:
       containers:
-        - image: nginxinc/nginx-unprivileged
+        - image: bitnami/nginx
           name: nginx
           ports:
-            - containerPort: 8081
+            - containerPort: 8080
           volumeMounts:
            - name: nginx-conf
-             mountPath: /etc/nginx/nginx.conf
+             mountPath: /opt/bitnami/nginx/conf/nginx.conf
              subPath: nginx.conf
       restartPolicy: Always
       volumes:
