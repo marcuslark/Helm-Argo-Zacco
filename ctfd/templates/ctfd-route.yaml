@@ -1,9 +1,8 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: nginx-route
+  name: ctfd
 spec:
-  host: ctfd.apps.aro-pisanonprod.euw-hub02.azure.volvo.net
   wildcardPolicy: None
   port:
     targetPort: webport
