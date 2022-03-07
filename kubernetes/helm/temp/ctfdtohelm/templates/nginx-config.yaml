@@ -4,9 +4,6 @@ metadata:
   name: nginx-conf
 data:
   nginx.conf: |
-    worker_processes 4;
-    pid /tmp/nginx.pid;
-
     events {
 
       worker_connections 1024;
@@ -14,9 +11,6 @@ data:
 
     http {
 
-      ## Behövs?
-      #proxy_buffering off;
-      
       # Configuration containing list of application servers
       upstream app_servers {
 
