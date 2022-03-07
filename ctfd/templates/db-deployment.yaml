@@ -27,13 +27,13 @@ spec:
             - --log-warnings=0
           env:
             - name: MYSQL_DATABASE
-              value: ctfd
+              value: {{ .Values.dbService.database }}
             - name: MYSQL_PASSWORD
-              value: ctfd
+              value: {{ .Values.dbService.password }}
             - name: MYSQL_ROOT_PASSWORD
-              value: ctfd
+              value: {{ .Values.dbService.rootPassword }}
             - name: MYSQL_USER
-              value: ctfd
+              value: {{ .Values.dbService.user }}
           image: mariadb:10.4.12
           name: db
           resources: {}

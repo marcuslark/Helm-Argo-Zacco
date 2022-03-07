@@ -24,7 +24,7 @@ spec:
             - name: ACCESS_LOG
               value: '-'
             - name: DATABASE_URL
-              value: mysql+pymysql://ctfd:ctfd@dbservice/ctfd
+              value: mysql+pymysql://{{ .Values.dbService.user }}:{{ .Values.dbService.password }}@dbservice/{{ .Values.dbService.database }}
             - name: ERROR_LOG
               value: '-'
             - name: LOG_FOLDER
@@ -43,8 +43,4 @@ spec:
             - containerPort: 8000
           resources: {}
       restartPolicy: Always
-#      volumes:
-#        - name: mariadb-storage
-#          persistentVolumeClaim:
-#            claimName: database-persistent-volume-claim
 status: {}
